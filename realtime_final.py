@@ -139,7 +139,7 @@ class RealtimeMovementValidatorML:
             if not success:
                 break
             
-            max_height = 500
+            max_height = 1000
             scale_factor = max_height / image.shape[0]
             image = cv2.resize(image, (int(image.shape[1] * scale_factor), max_height))
                 
@@ -249,10 +249,10 @@ class RealtimeMovementValidatorML:
                     self.last_state_transition_time = current_time 
 
                 if self.repetition_count == 0 and not repetition_completed:
-                     feedback_text_display = "Inicie a primeira repetição..."
+                     feedback_text_display = "Inicie o primeiro movimento..."
                      feedback_color = (255, 255, 0) 
                 elif not repetition_completed and (self.repetition_state == "CURLING_UP" or self.repetition_state == "CURLING_DOWN"):
-                     feedback_text_display = f"Repetição {self.repetition_count + 1}: Em andamento..."
+                     feedback_text_display = f"Movimento {self.repetition_count + 1}: Em andamento..."
                      feedback_color = (0, 165, 255) 
                 
             else: 
@@ -263,7 +263,7 @@ class RealtimeMovementValidatorML:
                 self.last_state_transition_time = current_time 
 
             cv2.putText(image, feedback_text_display, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, feedback_color, 2)
-            cv2.putText(image, f"Repetições: {self.repetition_count}", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2) 
+            cv2.putText(image, f"Total: {self.repetition_count}", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2) 
             cv2.imshow('Analise de Movimento ML em Tempo Real', image) 
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -336,7 +336,7 @@ if __name__ == "__main__":
         timeout_duration_seconds=timeout_seconds_for_state
     )
     
-    video_to_analyze_path = 'roscacor.mp4' 
+    video_to_analyze_path = 'roscavitor.mp4' 
 
     try:
         validator_ml.validate_video_realtime(video_to_analyze_path)
