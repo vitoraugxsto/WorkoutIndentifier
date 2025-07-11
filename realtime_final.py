@@ -10,6 +10,7 @@ import re
 import joblib # Importar para carregar o modelo ML
 # from sklearn.preprocessing import StandardScaler # Se você usou StandardScaler no treinamento, precisaria carregá-lo aqui também
 
+
 class RealtimeMovementValidatorML: 
     def __init__(self, model_path, ref_csv_paths, min_angle_ref_state, max_angle_ref_state, timeout_duration_seconds=5):
         """
@@ -155,6 +156,13 @@ class RealtimeMovementValidatorML:
                 shoulder_lm = results.pose_landmarks.landmark[self.mp_pose.PoseLandmark.RIGHT_SHOULDER]
                 elbow_lm = results.pose_landmarks.landmark[self.mp_pose.PoseLandmark.RIGHT_ELBOW]
                 wrist_lm = results.pose_landmarks.landmark[self.mp_pose.PoseLandmark.RIGHT_WRIST]
+
+                drawing_utils.draw_landmarks(
+                image,
+                results.pose_landmarks,
+                self.mp_pose.POSE_CONNECTIONS,
+              landmark_drawing_spec=drawing_styles.get_default_pose_landmarks_style()
+)
 
                 shoulder = [shoulder_lm.x, shoulder_lm.y]
                 elbow = [elbow_lm.x, elbow_lm.y]
@@ -326,7 +334,7 @@ if __name__ == "__main__":
     min_angle_for_state_machine = 60    
     max_angle_for_state_machine = 140   
 
-    timeout_seconds_for_state = 3 
+    timeout_seconds_for_state = 3  
 
     validator_ml = RealtimeMovementValidatorML(
         model_path=trained_model_file,
