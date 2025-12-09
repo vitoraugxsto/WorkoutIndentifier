@@ -6,7 +6,7 @@ from sklearn.metrics import classification_report, accuracy_score
 import joblib # Para salvar e carregar o modelo
 
 # 1. Carregar os Dados
-file_path = 'dataset_rosca_completo.csv'
+file_path = '../dataset/dataset_rosca_completo.csv'
 try:
     df = pd.read_csv(file_path)
     print(f"Dataset '{file_path}' carregado com sucesso.")

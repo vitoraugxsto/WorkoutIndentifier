@@ -328,8 +328,8 @@ class RealtimeMovementValidatorML:
 
 
 if __name__ == "__main__":
-    trained_model_file = 'rosca_quality_classifier_model.joblib' 
-    reference_csv_paths_for_init = ['rosca.csv', 'rosca2.csv'] 
+    trained_model_file = 'modelo /rosca_quality_classifier_model.joblib' 
+    reference_csv_paths_for_init = ['referencias dataset/rosca.csv', 'referencias dataset/rosca2.csv'] 
     
     min_angle_for_state_machine = 60    
     max_angle_for_state_machine = 140   
@@ -353,4 +353,4 @@ if __name__ == "__main__":
         print("Certifique-se de que o script de treinamento foi executado e o modelo foi salvo, e que 'rosca.csv' e 'rosca2.csv' estão no diretório correto.")
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}")
-        print("Verifique se todas as bibliotecas necessárias (opencv-python, numpy, pandas, mediapipe, scikit-learn, joblib) estão instaladas.")
+        print("Verifique se todas as bibliotecas necessárias (opencv-python, numpy, pandas, mediapipe, scikit-learn, joblib) estão instaladas.")    
