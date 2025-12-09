@@ -344,7 +344,7 @@ if __name__ == "__main__":
         timeout_duration_seconds=timeout_seconds_for_state
     )
     
-    video_to_analyze_path = 'roscavitor.mp4' 
+    video_to_analyze_path = 'videos/roscavitor.mp4' 
 
     try:
         validator_ml.validate_video_realtime(video_to_analyze_path)
