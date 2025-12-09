@@ -1,0 +1,36 @@
+# Virtual environments
+venv/
+.env/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Logs
+*.log
+
+# Models ML
+*.joblib
+*.pkl
+*.h5
+
+# Datasets
+*.csv
+
+# Media files
+*.mp4
+*.avi
+*.mov
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
